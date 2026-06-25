@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WiFi Pass Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- VIDEO BACKGROUND -->
+    <video autoplay muted loop id="bgVideo">
+        <source src="https://files.catbox.moe/7ebuxr.mp4" type="video/mp4">
+    </video>
+
+    <!-- EFEK GLITCH OVERLAY -->
+    <div class="glitch-overlay"></div>
+
+    <!-- EFEK PARTIKEL -->
+    <div id="particles-container"></div>
+
+    <div class="container">
+        <!-- LOGIN -->
+        <div id="loginPage" class="page active">
+            <div class="card">
+                <h2>😈Wifi Onx</h2>
+                <p class="sub">Login Untuk Melihat Password</p>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="loginUser" placeholder="Masukkan Username" />
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPass" placeholder="Masukkan Password" />
+                </div>
+                <button id="loginBtn" class="btn-primary">🚀 Login</button>
+                <p class="toggle-text">Belum Punya Akun? <span id="toRegister">Daftar Disini</span></p>
+                <p id="loginMsg" class="message"></p>
+            </div>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="registerPage" class="page">
+            <div class="card">
+                <h2>📝 Daftar</h2>
+                <p class="sub">Buat Akun Baru</p>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="regUser" placeholder="Masukkan Username" />
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="regPass" placeholder="Masukkan Password" />
+                </div>
+                <div class="input-group">
+                    <label>Konfirmasi Password</label>
+                    <input type="password" id="regConfirm" placeholder="Ulangi Password" />
+                </div>
+                <button id="registerBtn" class="btn-primary">📝 Daftar</button>
+                <p class="toggle-text">Sudah Punya Akun? <span id="toLogin">Login Disini</span></p>
+                <p id="regMsg" class="message"></p>
+            </div>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div id="dashboardPage" class="page">
+            <div class="card">
+                <h2>Network Onx😈</h2>
+                <p class="sub" id="subtitleFuturistic">Website ini tidak sepenuhnya work😈</p>
+                <div class="input-group">
+                    <label>Nama WiFi</label>
+                    <input type="text" id="wifiName" placeholder="Contoh: WiFi_Rumah" />
+                </div>
+                <button id="generateBtn" class="btn-secondary">🔍 Lihat Password</button>
+
+                <div id="progressArea" style="display: none; margin-top: 15px;">
+                    <div class="progress-container">
+                        <div id="progressBar" class="progress-bar" style="width: 0%;"></div>
+                    </div>
+                    <p id="timerText" class="timer-text">⏳ Menunggu...</p>
+                </div>
+
+                <div class="result-box">
+                    <span class="password-label">🔑 Password:</span>
+                    <span id="passwordValue" class="password-value">⸻</span>
+                </div>
+
+                <div class="result-box credit-box">
+                    <span class="credit-text">⚡ Website Ini Dibuat Oleh <span class="highlight">By: Dimzy</span></span>
+                </div>
+
+                <button id="logoutBtn" class="btn-outline">🚪 Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // === EFEK PARTIKEL ===
+        (function createParticles() {
+            const container = document.getElementById('particles-container');
+            const count = 50;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = (Math.random() * 8 + 5) + 's';
+                container.appendChild(particle);
+            }
+        })();
+    </script>
+</body>
+</html>
